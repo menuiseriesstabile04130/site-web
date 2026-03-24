@@ -1045,6 +1045,7 @@ footer {
         <div class="form-sous-titre">Réponse sous 24h · Déplacement gratuit</div>
       </div>
       <div id="formContent">
+<form action="https://formspree.io/f/xbdproaz" method="POST">
         <div class="form-row">
           <div class="fg"><label>Prénom *</label><input type="text" id="prenom" placeholder="Jean" required></div>
           <div class="fg"><label>Nom *</label><input type="text" id="nom" placeholder="Dupont" required></div>
@@ -1085,7 +1086,8 @@ footer {
         </div>
         <div class="fg"><label>Code postal</label><input type="text" id="cp" placeholder="Ex : 11400" maxlength="5"></div>
         <div class="fg"><label>Décrivez votre projet</label><textarea id="message" placeholder="Décrivez votre projet : nombre de fenêtres, type de logement, contraintes particulières..."></textarea></div>
-        <button class="form-submit" onclick="submitForm()">✉ Envoyer ma demande de RDV</button>
+        <button class="form-submit" "type="submit">✉ Envoyer ma demande de RDV</button>
+</form>
         <p class="form-note">* Champs obligatoires · Vos données restent confidentielles</p>
       </div>
       <div class="success-msg" id="successMsg">
