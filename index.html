@@ -1,0 +1,1534 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menuiseries Stabile — Fenêtres, Portes, Vérandas</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --noir: #0A0A0A;
+  --gris-fonce: #1A1A1A;
+  --gris-moyen: #3A3A3A;
+  --gris-clair: #8A8A8A;
+  --gris-pale: #E8E8E8;
+  --blanc: #FAFAFA;
+  --accent: #C8A96E;
+  --blanc-pur: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--blanc);
+  color: var(--noir);
+  overflow-x: hidden;
+}
+
+/* ─── NAVIGATION ─── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6%;
+  height: 72px;
+  border-bottom: 1px solid rgba(200,169,110,0.3);
+}
+
+.nav-logo {
+  display: flex; flex-direction: column; line-height: 1.1;
+}
+
+.logo-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--blanc-pur);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo-sub {
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 300;
+}
+
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none; align-items: center;
+}
+
+.nav-links a {
+  color: rgba(250,250,250,0.75);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: color .2s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.nav-rdv {
+  background: var(--accent) !important;
+  color: var(--noir) !important;
+  padding: 9px 20px !important;
+  font-weight: 700 !important;
+  transition: opacity .2s !important;
+}
+.nav-rdv:hover { opacity: .85; }
+
+.burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.burger span { display: block; width: 24px; height: 1.5px; background: var(--blanc-pur); transition: .3s; }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.65) 60%, rgba(10,10,10,0.82) 100%),
+    url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=85') center/cover no-repeat;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 6%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-line {
+  width: 1px; height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--accent));
+  margin-bottom: 2rem;
+  animation: fadeUp 1s ease both;
+}
+
+.hero-tag {
+  font-size: 0.72rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+  animation: fadeUp 1s .1s ease both;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 300;
+  color: var(--blanc-pur);
+  line-height: 1.05;
+  max-width: 750px;
+  animation: fadeUp 1s .2s ease both;
+}
+
+.hero-title strong {
+  font-weight: 600;
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-desc {
+  color: rgba(250,250,250,0.65);
+  font-size: 1rem;
+  max-width: 460px;
+  line-height: 1.8;
+  margin: 2rem 0 3rem;
+  font-weight: 300;
+  animation: fadeUp 1s .35s ease both;
+}
+
+.hero-actions {
+  display: flex; gap: 1.2rem; align-items: center;
+  animation: fadeUp 1s .5s ease both;
+  flex-wrap: wrap;
+}
+
+.btn-gold {
+  background: var(--accent);
+  color: var(--noir);
+  padding: 16px 36px;
+  border: none; border-radius: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background .2s, transform .15s;
+}
+.btn-gold:hover { background: #dbbf7e; transform: translateY(-2px); }
+
+.btn-ghost {
+  color: rgba(250,250,250,0.75);
+  padding: 16px 0;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(250,250,250,0.3);
+  transition: color .2s, border-color .2s;
+}
+.btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+.hero-corner {
+  position: absolute; right: 6%; top: 50%;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 1.5rem;
+  animation: fadeUp 1s .65s ease both;
+}
+
+.hero-pill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(200,169,110,0.35);
+  color: var(--blanc-pur);
+  padding: 12px 22px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: .5rem;
+  color: rgba(250,250,250,0.4);
+  font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+  animation: fadeUp 1s .8s ease both;
+}
+
+.scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  animation: scrollPulse 2s infinite;
+}
+
+/* ─── BANDEAU STATS ─── */
+#stats {
+  background: var(--noir);
+  border-top: 1px solid rgba(200,169,110,0.2);
+  border-bottom: 1px solid rgba(200,169,110,0.2);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  divide: auto;
+}
+
+.stat-item {
+  padding: 3rem 2rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  transition: background .3s;
+}
+.stat-item:last-child { border-right: none; }
+.stat-item:hover { background: rgba(200,169,110,0.05); }
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-unit {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gris-clair);
+  margin-top: .6rem;
+}
+
+/* ─── SECTIONS ─── */
+section { padding: 100px 6%; }
+
+.s-tag {
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.s-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 300;
+  color: var(--noir);
+  line-height: 1.1;
+}
+
+.s-title em { font-style: italic; color: var(--gris-moyen); }
+
+.s-sub {
+  color: var(--gris-clair);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  max-width: 520px;
+  margin-top: 1rem;
+  font-weight: 300;
+}
+
+/* ─── PRESTATIONS ─── */
+#prestations { background: var(--blanc-pur); }
+
+.prestations-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem;
+}
+
+.prestations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--gris-pale);
+}
+
+.prestation-card {
+  padding: 3rem 2.5rem;
+  border-right: 1px solid var(--gris-pale);
+  border-bottom: 1px solid var(--gris-pale);
+  position: relative;
+  overflow: hidden;
+  transition: background .3s;
+  cursor: default;
+}
+
+.prestation-card:nth-child(3n) { border-right: none; }
+.prestation-card:nth-child(n+4) { border-bottom: none; }
+
+.prestation-card::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--noir);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s cubic-bezier(.77,0,.175,1);
+  z-index: 0;
+}
+
+.prestation-card:hover::after { transform: scaleX(1); }
+
+.card-content { position: relative; z-index: 1; }
+
+.prestation-card:hover .card-icon,
+.prestation-card:hover .card-name,
+.prestation-card:hover .card-desc,
+.prestation-card:hover .card-mats { color: var(--blanc-pur) !important; }
+
+.prestation-card:hover .card-mats span { border-color: rgba(255,255,255,0.3) !important; }
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  color: var(--gris-moyen);
+  transition: color .3s;
+}
+
+.card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--noir);
+  margin-bottom: .7rem;
+  transition: color .3s;
+}
+
+.card-desc {
+  color: var(--gris-clair);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  transition: color .3s;
+}
+
+.card-mats {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  transition: color .3s;
+}
+
+.card-mats span {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gris-clair);
+  border: 1px solid var(--gris-pale);
+  padding: 4px 10px;
+  border-radius: 0;
+  transition: border-color .3s, color .3s;
+}
+
+/* ─── APPROCHE ─── */
+#approche {
+  background: var(--noir);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0;
+}
+
+.approche-img {
+  min-height: 600px;
+  background: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=85') center/cover no-repeat;
+  position: relative;
+}
+
+.approche-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, transparent, rgba(10,10,10,0.4));
+}
+
+.approche-content {
+  padding: 80px 7%;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+.approche-content .s-title { color: var(--blanc-pur); }
+.approche-content .s-sub { color: rgba(250,250,250,0.55); }
+
+.etapes {
+  margin-top: 3rem;
+  display: flex; flex-direction: column; gap: 0;
+}
+
+.etape {
+  display: flex; gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.etape:last-child { border-bottom: none; }
+
+.etape-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--accent);
+  opacity: .5;
+  line-height: 1;
+  min-width: 40px;
+}
+
+.etape-body {}
+
+.etape-titre {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--blanc-pur);
+  letter-spacing: .5px;
+  margin-bottom: .3rem;
+}
+
+.etape-desc {
+  font-size: 0.85rem;
+  color: rgba(250,250,250,0.45);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ─── MATÉRIAUX ─── */
+#materiaux { background: var(--blanc); }
+
+.mats-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-bottom: 4rem; }
+
+.mat-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.mat-card {
+  background: var(--blanc-pur);
+  border: 1px solid var(--gris-pale);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: border-color .3s, box-shadow .3s;
+}
+
+.mat-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.mat-emoji { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+
+.mat-nom {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--noir);
+  margin-bottom: .6rem;
+}
+
+.mat-desc {
+  font-size: 0.83rem;
+  color: var(--gris-clair);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ─── TÉMOIGNAGES ─── */
+#temoignages {
+  background: var(--gris-fonce);
+  padding: 100px 6%;
+}
+
+#temoignages .s-title { color: var(--blanc-pur); }
+
+.temoignages-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.temoignage {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 2.5rem;
+  position: relative;
+}
+
+.temoignage::before {
+  content: '"';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  color: var(--accent);
+  opacity: .25;
+  position: absolute; top: 1rem; right: 1.5rem;
+  line-height: 1;
+}
+
+.t-stars { color: var(--accent); font-size: 0.8rem; margin-bottom: 1.2rem; letter-spacing: 2px; }
+
+.t-texte {
+  font-size: 0.92rem;
+  color: rgba(250,250,250,0.65);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 1.8rem;
+  font-weight: 300;
+}
+
+.t-auteur { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+.t-ville { font-size: 0.75rem; color: rgba(250,250,250,0.3); margin-top: .2rem; }
+
+/* ─── RENDEZ-VOUS ─── */
+#rendez-vous { background: var(--blanc-pur); }
+
+.rdv-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 6rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+
+.rdv-left .s-sub { margin-bottom: 2.5rem; }
+
+.contact-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+.c-item {
+  display: flex; align-items: center; gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--gris-moyen);
+}
+
+.c-icon {
+  width: 40px; height: 40px;
+  background: var(--noir);
+  color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.zone-box {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--gris-pale);
+  background: var(--blanc);
+}
+
+.zone-titre {
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gris-clair);
+  margin-bottom: .7rem;
+}
+
+.zone-liste {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+}
+
+.zone-tag {
+  background: var(--gris-pale);
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  color: var(--gris-moyen);
+  letter-spacing: .5px;
+}
+
+/* FORMULAIRE */
+.rdv-form {
+  background: var(--noir);
+  padding: 3rem;
+}
+
+.form-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.form-titre {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--blanc-pur);
+  margin-bottom: .3rem;
+}
+
+.form-sous-titre {
+  font-size: 0.8rem;
+  color: var(--gris-clair);
+  letter-spacing: 1px;
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.fg { margin-bottom: 1.1rem; }
+
+.fg label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gris-clair);
+  margin-bottom: .5rem;
+}
+
+.fg input,
+.fg select,
+.fg textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--blanc-pur);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  outline: none;
+  transition: border-color .2s, background .2s;
+  -webkit-appearance: none;
+}
+
+.fg input:focus,
+.fg select:focus,
+.fg textarea:focus {
+  border-color: var(--accent);
+  background: rgba(200,169,110,0.05);
+}
+
+.fg input::placeholder,
+.fg textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+.fg select option { background: var(--gris-fonce); color: var(--blanc-pur); }
+
+.fg textarea { resize: vertical; min-height: 90px; }
+
+.form-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--accent);
+  color: var(--noir);
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: .5rem;
+  transition: background .2s, transform .15s;
+}
+.form-submit:hover { background: #dbbf7e; transform: translateY(-2px); }
+
+.form-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: 1rem;
+  font-weight: 300;
+}
+
+/* SUCCESS STATE */
+.success-msg {
+  display: none;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+.success-icon { font-size: 3rem; margin-bottom: 1rem; }
+.success-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: var(--blanc-pur);
+  margin-bottom: .7rem;
+}
+.success-text { color: var(--gris-clair); font-size: 0.9rem; font-weight: 300; line-height: 1.7; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--noir);
+  padding: 60px 6% 30px;
+  border-top: 1px solid rgba(200,169,110,0.2);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 2rem;
+}
+
+.footer-brand .logo-main { font-size: 1.3rem; }
+.footer-brand p {
+  color: rgba(255,255,255,0.35);
+  font-size: 0.85rem;
+  line-height: 1.75;
+  margin-top: 1rem;
+  font-weight: 300;
+  max-width: 280px;
+}
+
+.footer-col-title {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+}
+
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+.footer-links a {
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 300;
+  transition: color .2s;
+}
+.footer-links a:hover { color: var(--blanc-pur); }
+
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: .5; }
+  50% { opacity: 1; }
+}
+
+.reveal-old {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal-old.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+
+  #stats { grid-template-columns: 1fr 1fr; }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,0.06); }
+
+  .prestations-grid { grid-template-columns: 1fr 1fr; }
+  .prestation-card:nth-child(2n) { border-right: none; }
+  .prestation-card:nth-child(3) { border-right: 1px solid var(--gris-pale); }
+
+  #approche { grid-template-columns: 1fr; }
+  .approche-img { min-height: 300px; }
+  .approche-content { padding: 50px 6%; }
+
+  .mats-intro { grid-template-columns: 1fr; gap: 2rem; }
+  .mat-cards { grid-template-columns: 1fr; }
+
+  .temoignages-wrap { grid-template-columns: 1fr; }
+
+  .rdv-layout { grid-template-columns: 1fr; gap: 3rem; }
+
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+
+  .hero-corner { display: none; }
+
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .prestations-grid { grid-template-columns: 1fr; }
+  .prestation-card { border-right: none !important; }
+  #stats { grid-template-columns: 1fr 1fr; }
+}
+.reveal { opacity: 1 !important; transform: none !important; }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-logo">
+    <span class="logo-main">Menuiseries Stabile</span>
+    <span class="logo-sub">Aluminium · PVC · Bois</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#prestations">Prestations</a></li>
+    <li><a href="#materiaux">Matériaux</a></li>
+    <li><a href="#approche">Notre approche</a></li>
+    <li><a href="#temoignages">Avis</a></li>
+    <li><a href="#rendez-vous" class="nav-rdv">Prendre RDV</a></li>
+  </ul>
+  <div class="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-line"></div>
+  <p class="hero-tag">Menuiseries Stabile — Depuis 1998</p>
+  <h1 class="hero-title">
+    L'art de la menuiserie,<br>
+    <strong>au service de votre habitat</strong>
+  </h1>
+  <p class="hero-desc">
+    Fenêtres, portes, portails, vérandas — en aluminium, PVC ou bois.
+    Travaux neufs et rénovation pour particuliers et professionnels du bâtiment.
+  </p>
+  <div class="hero-actions">
+    <a href="#rendez-vous" class="btn-gold">Prendre rendez-vous</a>
+    <a href="#prestations" class="btn-ghost">Découvrir nos prestations</a>
+  </div>
+
+  <div class="hero-corner">
+    <div class="hero-pill">✓ Devis gratuit</div>
+    <div class="hero-pill">✓ Pose incluse</div>
+    <div class="hero-pill">✓ Garantie 10 ans</div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Défiler</span>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div id="stats">
+  <div class="stat-item reveal">
+    <div class="stat-number">25<span class="stat-unit">+</span></div>
+    <div class="stat-label">Années d'expérience</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-number">1<span class="stat-unit">200</span></div>
+    <div class="stat-label">Chantiers réalisés</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-number">98<span class="stat-unit">%</span></div>
+    <div class="stat-label">Clients satisfaits</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-number">3</div>
+    <div class="stat-label">Matériaux maîtrisés</div>
+  </div>
+</div>
+
+<!-- ══ PRESTATIONS ══ -->
+<section id="prestations">
+  <div class="prestations-header">
+    <div>
+      <p class="s-tag">Nos prestations</p>
+      <h2 class="s-title">Ce que nous<br><em>réalisons pour vous</em></h2>
+    </div>
+    <p class="s-sub">Du neuf à la rénovation complète, nous intervenons pour les particuliers comme pour les entreprises et constructeurs.</p>
+  </div>
+
+
+  <div class="prestations-grid">
+
+    <div class="prestation-card reveal" onclick="openModal('fenetres')">
+      <div class="card-content">
+        <span class="card-icon">🪟</span>
+        <h3 class="card-name">Fenêtres</h3>
+        <p class="card-desc">Fenêtres simple, double ou triple vitrage, à la coupe sur mesure. Isolation thermique et phonique optimale.</p>
+        <div class="card-mats"><span>Aluminium</span><span>PVC</span><span>Bois</span></div>
+        <div class="card-more">Voir les détails →</div>
+      </div>
+    </div>
+
+    <div class="prestation-card reveal" onclick="openModal('portes')">
+      <div class="card-content">
+        <span class="card-icon">🚪</span>
+        <h3 class="card-name">Portes</h3>
+        <p class="card-desc">Portes d'entrée, de service et intérieures. Sécurité, design et isolation au cœur de chaque réalisation.</p>
+        <div class="card-mats"><span>Aluminium</span><span>PVC</span><span>Bois</span></div>
+        <div class="card-more">Voir les détails →</div>
+      </div>
+    </div>
+
+    <div class="prestation-card reveal" onclick="openModal('portails')">
+      <div class="card-content">
+        <span class="card-icon">🏠</span>
+        <h3 class="card-name">Portails & Clôtures</h3>
+        <p class="card-desc">Portails battants ou coulissants, motorisation possible. Clôtures assorties pour un ensemble sécurisé.</p>
+        <div class="card-mats"><span>Aluminium</span><span>PVC</span></div>
+        <div class="card-more">Voir les détails →</div>
+      </div>
+    </div>
+
+    <div class="prestation-card reveal" onclick="openModal('verandas')">
+      <div class="card-content">
+        <span class="card-icon">🌿</span>
+        <h3 class="card-name">Vérandas</h3>
+        <p class="card-desc">Extensions lumineuses sur mesure pour agrandir votre espace de vie. Pergolas et abris de terrasse.</p>
+        <div class="card-mats"><span>Aluminium</span><span>Mixte</span></div>
+        <div class="card-more">Voir les détails →</div>
+      </div>
+    </div>
+
+    <div class="prestation-card reveal" onclick="openModal('renovation')">
+      <div class="card-content">
+        <span class="card-icon">🛠️</span>
+        <h3 class="card-name">Rénovation</h3>
+        <p class="card-desc">Remplacement de menuiseries anciennes sans travaux de maçonnerie. Éligible aux aides de l'État.</p>
+        <div class="card-mats"><span>Diagnostic offert</span><span>MaPrimeRénov'</span></div>
+        <div class="card-more">Voir les détails →</div>
+      </div>
+    </div>
+
+    <div class="prestation-card reveal" onclick="openModal('construction')">
+      <div class="card-content">
+        <span class="card-icon">🏢</span>
+        <h3 class="card-name">Construction neuve</h3>
+        <p class="card-desc">Partenaire des constructeurs et architectes. Fourniture et pose complète sur chantiers neufs.</p>
+        <div class="card-mats"><span>Particuliers</span><span>Professionnels</span></div>
+        <div class="card-more">Voir les détails →</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ APPROCHE ══ -->
+<div id="approche" class="reveal" style="display:grid;grid-template-columns:1fr 1fr;">
+  <div class="approche-img"></div>
+  <div class="approche-content">
+    <p class="s-tag" style="color:var(--accent)">Notre méthode</p>
+    <h2 class="s-title" style="color:var(--blanc-pur)">Un projet<br><em style="color:rgba(250,250,250,0.5)">bien mené</em></h2>
+    <p class="s-sub">De la première visite à la réception du chantier, nous vous accompagnons à chaque étape avec rigueur et transparence.</p>
+    <div class="etapes">
+      <div class="etape"><span class="etape-num">01</span><div class="etape-body"><div class="etape-titre">Prise de contact & RDV</div><div class="etape-desc">Planifiez votre rendez-vous en ligne ou par téléphone. Nous nous déplaçons chez vous gratuitement.</div></div></div>
+      <div class="etape"><span class="etape-num">02</span><div class="etape-body"><div class="etape-titre">Étude & Devis gratuit</div><div class="etape-desc">Prise de mesures, conseils matériaux et remise d'un devis détaillé sous 48h, sans engagement.</div></div></div>
+      <div class="etape"><span class="etape-num">03</span><div class="etape-body"><div class="etape-titre">Fabrication sur mesure</div><div class="etape-desc">Vos menuiseries sont fabriquées sur mesure chez nos partenaires sélectionnés, dans les délais convenus.</div></div></div>
+      <div class="etape"><span class="etape-num">04</span><div class="etape-body"><div class="etape-titre">Pose & Finitions</div><div class="etape-desc">Installation soignée par nos équipes qualifiées. Nettoyage et vérification complète avant réception.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MATÉRIAUX ══ -->
+<section id="materiaux">
+  <div class="mats-intro">
+    <div>
+      <p class="s-tag">Matériaux</p>
+      <h2 class="s-title">Aluminium, PVC<br><em>ou Bois ?</em></h2>
+    </div>
+    <p class="s-sub">Chaque matériau a ses atouts. Nous vous guidons vers le meilleur choix selon votre budget, votre style et vos besoins en isolation.</p>
+  </div>
+  <div class="mat-cards">
+    <div class="mat-card reveal">
+      <span class="mat-emoji">🔩</span>
+      <div class="mat-nom">Aluminium</div>
+      <p class="mat-desc">Robuste, moderne et très faible entretien. Idéal pour les grandes baies vitrées et les vérandas. Disponible dans toutes les couleurs RAL.</p>
+    </div>
+    <div class="mat-card reveal">
+      <span class="mat-emoji">🧩</span>
+      <div class="mat-nom">PVC</div>
+      <p class="mat-desc">Excellent rapport qualité-prix, très bon isolant thermique et phonique. Le choix le plus répandu pour la rénovation de logements.</p>
+    </div>
+    <div class="mat-card reveal">
+      <span class="mat-emoji">🌲</span>
+      <div class="mat-nom">Bois</div>
+      <p class="mat-desc">Matériau noble et chaleureux, excellent isolant naturel. Parfait pour les constructions à ossature bois et les maisons de caractère.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TÉMOIGNAGES ══ -->
+<section id="temoignages">
+  <p class="s-tag">Avis clients</p>
+  <h2 class="s-title" style="color:var(--blanc-pur)">Ce que disent<br><em style="color:rgba(250,250,250,0.4)">nos clients</em></h2>
+  <div class="temoignages-wrap">
+    <div class="temoignage reveal">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-texte">Remplacement de toutes nos fenêtres en une journée, proprement et efficacement. Le devis était clair, sans surprise. On recommande vivement !</p>
+      <div class="t-auteur">Marie & Jean-Pierre L.</div>
+      <div class="t-ville">Particuliers — Rénovation complète</div>
+    </div>
+    <div class="temoignage reveal">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-texte">Véranda installée cet été, magnifique résultat. L'équipe a su s'adapter aux contraintes de notre terrain. Très professionnel du début à la fin.</p>
+      <div class="t-auteur">Famille Moreau</div>
+      <div class="t-ville">Particuliers — Véranda sur mesure</div>
+    </div>
+    <div class="temoignage reveal">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-texte">Nous faisons régulièrement appel à Menuiseries Stabile pour nos chantiers de construction. Fiables, dans les délais, et le travail est impeccable.</p>
+      <div class="t-auteur">Thomas R.</div>
+      <div class="t-ville">Constructeur — Partenaire chantiers neufs</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RENDEZ-VOUS ══ -->
+<section id="rendez-vous">
+  <p class="s-tag">Prise de rendez-vous</p>
+  <h2 class="s-title">Discutons de<br><em>votre projet</em></h2>
+  <div class="rdv-layout">
+    <div class="rdv-left reveal">
+      <p class="s-sub" style="margin-top:1rem">Remplissez le formulaire et nous vous recontactons sous 24h pour confirmer votre rendez-vous. Le déplacement et le devis sont entièrement gratuits.</p>
+      <div class="contact-list" style="margin-top:2rem">
+        <div class="c-item"><div class="c-icon">📞</div><div><div style="font-weight:700">Téléphone</div><div style="color:var(--gris-clair);font-size:.85rem">+33 (0)X XX XX XX XX</div></div></div>
+        <div class="c-item"><div class="c-icon">✉️</div><div><div style="font-weight:700">Email</div><div style="color:var(--gris-clair);font-size:.85rem">contact@menuiseries-stabile.fr</div></div></div>
+        <div class="c-item"><div class="c-icon">🕐</div><div><div style="font-weight:700">Horaires d'ouverture</div><div style="color:var(--gris-clair);font-size:.85rem">Lun–Ven : 8h–18h · Sam : 9h–12h</div></div></div>
+      </div>
+      <div class="zone-box">
+        <div class="zone-titre">Zone d'intervention</div>
+        <div class="zone-liste">
+          <span class="zone-tag">Ville principale</span>
+          <span class="zone-tag">Département</span>
+          <span class="zone-tag">Communes voisines</span>
+          <span class="zone-tag">Rayon 50 km</span>
+        </div>
+      </div>
+    </div>
+    <div class="rdv-form reveal" id="rdvForm">
+      <div class="form-header">
+        <div class="form-titre">Demander un rendez-vous</div>
+        <div class="form-sous-titre">Réponse sous 24h · Déplacement gratuit</div>
+      </div>
+      <div id="formContent">
+        <div class="form-row">
+          <div class="fg"><label>Prénom *</label><input type="text" id="prenom" placeholder="Jean" required></div>
+          <div class="fg"><label>Nom *</label><input type="text" id="nom" placeholder="Dupont" required></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label>Téléphone *</label><input type="tel" id="tel" placeholder="06 XX XX XX XX" required></div>
+          <div class="fg"><label>Email *</label><input type="email" id="email" placeholder="jean@exemple.fr" required></div>
+        </div>
+        <div class="fg">
+          <label>Type de projet *</label>
+          <select id="projet">
+            <option value="" disabled selected>Sélectionnez votre projet</option>
+            <optgroup label="Menuiseries">
+              <option>Fenêtres — Remplacement</option>
+              <option>Fenêtres — Construction neuve</option>
+              <option>Porte d'entrée</option>
+              <option>Portail / Clôture</option>
+              <option>Véranda / Pergola</option>
+            </optgroup>
+            <optgroup label="Matériaux">
+              <option>Aluminium</option><option>PVC</option><option>Bois</option>
+              <option>Je ne sais pas encore</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Type de client</label>
+          <select id="client">
+            <option>Particulier</option>
+            <option>Constructeur / Architecte</option>
+            <option>Entreprise du bâtiment</option>
+            <option>Syndic / Copropriété</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label>Disponibilité souhaitée</label><input type="date" id="date" min=""></div>
+          <div class="fg"><label>Créneau préféré</label><select id="creneau"><option>Matin (8h–12h)</option><option>Après-midi (14h–18h)</option><option>Flexible</option></select></div>
+        </div>
+        <div class="fg"><label>Code postal</label><input type="text" id="cp" placeholder="Ex : 11400" maxlength="5"></div>
+        <div class="fg"><label>Décrivez votre projet</label><textarea id="message" placeholder="Décrivez votre projet : nombre de fenêtres, type de logement, contraintes particulières..."></textarea></div>
+        <button class="form-submit" onclick="submitForm()">✉ Envoyer ma demande de RDV</button>
+        <p class="form-note">* Champs obligatoires · Vos données restent confidentielles</p>
+      </div>
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon">✅</div>
+        <div class="success-title" style="color:var(--blanc-pur)">Demande envoyée !</div>
+        <p class="success-text">Merci pour votre confiance.<br>Nous vous recontactons sous 24h pour confirmer votre rendez-vous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <span class="logo-main">Menuiseries Stabile</span>
+        <span class="logo-sub">Aluminium · PVC · Bois</span>
+      </div>
+      <p>Entreprise familiale spécialisée dans la menuiserie depuis plus de 25 ans. Qualité artisanale et service personnalisé pour tous vos projets.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Prestations</div>
+      <ul class="footer-links">
+        <li><a href="#prestations">Fenêtres</a></li>
+        <li><a href="#prestations">Portes d'entrée</a></li>
+        <li><a href="#prestations">Portails & Clôtures</a></li>
+        <li><a href="#prestations">Vérandas</a></li>
+        <li><a href="#prestations">Rénovation</a></li>
+        <li><a href="#prestations">Construction neuve</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Informations</div>
+      <ul class="footer-links">
+        <li><a href="#approche">Notre méthode</a></li>
+        <li><a href="#materiaux">Aluminium · PVC · Bois</a></li>
+        <li><a href="#temoignages">Avis clients</a></li>
+        <li><a href="#rendez-vous">Prendre RDV</a></li>
+        <li><a href="#">Mentions légales</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Menuiseries Stabile — Tous droits réservés</span>
+    <span>Site réalisé avec soin · RGE · Certifié Qualibat</span>
+  </div>
+</footer>
+
+<!-- ══ MODALES ══ -->
+<div id="modal-overlay" onclick="closeModal()">
+  <div id="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<style>
+/* ─── CARD MORE HINT ─── */
+.card-more {
+  margin-top: 1.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  transition: color .2s;
+}
+.prestation-card { cursor: pointer; }
+.prestation-card:hover .card-more { color: var(--blanc-pur); }
+
+/* ─── MODALE ─── */
+#modal-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+#modal-overlay.open { display: flex; }
+
+#modal-box {
+  background: var(--blanc-pur);
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalIn .3s cubic-bezier(.34,1.56,.64,1) both;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(.94) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+  position: sticky; top: 0; float: right;
+  margin: 1rem 1rem 0 0;
+  background: var(--noir);
+  color: var(--blanc-pur);
+  border: none;
+  width: 36px; height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+  transition: background .2s;
+}
+.modal-close:hover { background: var(--accent); color: var(--noir); }
+
+/* MODALE CONTENU */
+.modal-hero {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-body { padding: 2.5rem; }
+
+.modal-tag {
+  font-size: 0.68rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .8rem;
+}
+
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--noir);
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+
+.modal-desc {
+  color: var(--gris-clair);
+  font-size: 0.93rem;
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.modal-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.modal-feature {
+  background: var(--blanc);
+  border: 1px solid var(--gris-pale);
+  padding: 1.2rem;
+}
+
+.modal-feature-icon { font-size: 1.4rem; margin-bottom: .5rem; display: block; }
+.modal-feature-titre { font-size: 0.85rem; font-weight: 700; color: var(--noir); margin-bottom: .3rem; }
+.modal-feature-desc { font-size: 0.8rem; color: var(--gris-clair); line-height: 1.6; }
+
+.modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+
+.modal-gallery img {
+  width: 100%; height: 140px;
+  object-fit: cover;
+  display: block;
+  transition: opacity .2s;
+}
+.modal-gallery img:hover { opacity: .85; }
+
+.modal-mats {
+  display: flex; flex-wrap: wrap; gap: .6rem;
+  margin-bottom: 2rem;
+}
+
+.modal-mat {
+  background: var(--noir);
+  color: var(--blanc-pur);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 7px 16px;
+}
+
+.modal-cta {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--noir);
+  padding: 14px 32px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}
+.modal-cta:hover { background: #dbbf7e; }
+
+@media (max-width: 600px) {
+  .modal-features { grid-template-columns: 1fr; }
+  .modal-gallery { grid-template-columns: 1fr 1fr; }
+  .modal-title { font-size: 1.6rem; }
+}
+</style>
+
+<script>
+// ══ DONNÉES DES MODALES ══
+const modals = {
+  fenetres: {
+    tag: 'Nos fenêtres',
+    title: 'Fenêtres sur mesure',
+    // Grande baie vitrée aluminium villa moderne
+    hero: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80',
+    desc: "Nous proposons des fenêtres sur mesure en aluminium, PVC ou bois, adaptées à tous les styles architecturaux. Du simple vitrage à la triple isolation, chaque menuiserie est conçue pour maximiser le confort thermique et phonique de votre logement tout en sublimant votre façade.",
+    features: [
+      { icon: '🌡️', titre: 'Isolation thermique', desc: 'Double ou triple vitrage, coefficient Uw jusqu\'à 0,8 W/m².K' },
+      { icon: '🔇', titre: 'Isolation phonique', desc: 'Jusqu\'à 45 dB de réduction du bruit extérieur' },
+      { icon: '🔒', titre: 'Sécurité renforcée', desc: 'Vitrage feuilleté, serrures multipoints disponibles' },
+      { icon: '🎨', titre: 'Personnalisation', desc: 'Toutes couleurs RAL, finitions brossées ou laquées' },
+    ],
+    gallery: [
+      // Fenêtre aluminium intérieur lumineux
+      'https://images.unsplash.com/photo-1600047509782-20d39509f26d?w=400&q=80',
+      // Baie vitrée coulissante salon lumineux
+      'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80',
+      // Fenêtre PVC blanc maison moderne
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
+    ],
+    mats: ['Aluminium', 'PVC', 'Bois', 'Sur mesure', 'Double vitrage', 'Triple vitrage'],
+  },
+  portes: {
+    tag: 'Nos portes',
+    title: 'Portes d\'entrée & intérieures',
+    // Porte d'entrée moderne villa
+    hero: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=900&q=80',
+    desc: "Une porte d'entrée, c'est la première impression de votre maison. Nous proposons des portes alliant esthétique, sécurité et isolation : entrées blindées, portes de service, portes-fenêtres et portes intérieures. Chaque modèle est disponible en aluminium, PVC ou bois massif.",
+    features: [
+      { icon: '🛡️', titre: 'Sécurité A2P', desc: 'Serrures multipoints, blindage, certifications antieffraction' },
+      { icon: '🌡️', titre: 'Isolation', desc: 'Rupture de pont thermique, joint périphérique haute densité' },
+      { icon: '📐', titre: 'Sur mesure', desc: 'Toutes dimensions, ouvertures standard ou atypiques' },
+      { icon: '✨', titre: 'Design', desc: 'Gamme contemporaine, classique, vitrée ou pleine' },
+    ],
+    gallery: [
+      // Porte entrée alu noire moderne
+      'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=400&q=80',
+      // Porte intérieure bois
+      'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400&q=80',
+      // Porte vitrée couloir villa
+      'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?w=400&q=80',
+    ],
+    mats: ['Aluminium', 'PVC', 'Bois massif', 'Blindée', 'Vitrée', 'Sur mesure'],
+  },
+  portails: {
+    tag: 'Portails & Clôtures',
+    title: 'Portails, Clôtures & Motorisation',
+    // Portail aluminium entrée villa moderne
+    hero: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80',
+    desc: "Sécurisez et valorisez votre propriété avec un portail sur mesure. Battant ou coulissant, avec ou sans motorisation, nous réalisons des portails en aluminium ou PVC assortis de clôtures et portillons pour un ensemble cohérent et élégant.",
+    features: [
+      { icon: '⚡', titre: 'Motorisation', desc: 'Ouverture automatique, télécommande, interphone vidéo' },
+      { icon: '🔒', titre: 'Sécurité', desc: 'Serrures électriques, détecteurs de présence, éclairage LED' },
+      { icon: '🎨', titre: 'Design', desc: 'Lames ajourées ou pleines, styles contemporain ou classique' },
+      { icon: '🌧️', titre: 'Durabilité', desc: 'Traitement anti-corrosion, garantie 10 ans' },
+    ],
+    gallery: [
+      // Clôture alu lames horizontales
+      'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&q=80',
+      // Entrée villa grille portail
+      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80',
+      // Portail coulissant maison moderne
+      'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&q=80',
+    ],
+    mats: ['Aluminium', 'PVC', 'Battant', 'Coulissant', 'Motorisé', 'Clôture assortie'],
+  },
+  verandas: {
+    tag: 'Vérandas & Extensions',
+    title: 'Vérandas & Pergolas sur mesure',
+    // Véranda lumineuse avec terrasse
+    hero: 'https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=900&q=80',
+    desc: "Agrandissez votre espace de vie avec une véranda lumineuse conçue sur mesure. Salon d'été, cuisine ouverte, bureau ou salle de jeux : chaque projet est unique. Nous réalisons aussi des pergolas bioclimatiques et abris de terrasse pour profiter de l'extérieur toute l'année.",
+    features: [
+      { icon: '☀️', titre: 'Pergola bioclimatique', desc: 'Lames orientables pour gérer lumière et ventilation' },
+      { icon: '🏠', titre: 'Extension de vie', desc: 'Véranda 4 saisons, isolation toiture et parois vitrées' },
+      { icon: '📐', titre: 'Architecture sur mesure', desc: 'Adossée, autoportante, toiture plate ou en pente' },
+      { icon: '💡', titre: 'Domotique', desc: 'Stores, éclairage LED, stores motorisés intégrables' },
+    ],
+    gallery: [
+      // Pergola aluminium terrasse extérieure
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80',
+      // Véranda intérieur lumineux salon
+      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80',
+      // Terrasse couverte pergola bioclimatique
+      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=400&q=80',
+    ],
+    mats: ['Aluminium', 'Toit plat', 'Toit en pente', 'Pergola', 'Bioclimatique', 'Sur mesure'],
+  },
+  renovation: {
+    tag: 'Rénovation',
+    title: 'Rénovation & Aides de l\'État',
+    // Avant/après rénovation façade maison
+    hero: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
+    desc: "La rénovation de vos menuiseries est l'un des travaux les plus rentables pour améliorer l'isolation de votre logement. Nous remplaçons vos anciennes menuiseries sans travaux de maçonnerie, souvent en une seule journée. Et nous vous aidons à monter vos dossiers d'aides financières.",
+    features: [
+      { icon: '💰', titre: 'MaPrimeRénov\'', desc: 'Jusqu\'à 40% du montant des travaux remboursé selon revenus' },
+      { icon: '⚡', titre: 'CEE', desc: 'Certificats d\'économie d\'énergie cumulables avec les autres aides' },
+      { icon: '📋', titre: 'Diagnostic gratuit', desc: 'Bilan thermique offert, conseils personnalisés sans engagement' },
+      { icon: '🏃', titre: 'Pose rapide', desc: 'Remplacement en 1 journée, sans travaux de gros œuvre' },
+    ],
+    gallery: [
+      // Pose fenêtre artisan chantier rénovation
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&q=80',
+      // Maison rénovée façade propre
+      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&q=80',
+      // Isolation fenêtre thermique
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&q=80',
+    ],
+    mats: ['Aluminium', 'PVC', 'Bois', 'MaPrimeRénov\'', 'CEE', 'Diagnostic offert'],
+  },
+  construction: {
+    tag: 'Construction neuve',
+    title: 'Partenaire des constructeurs',
+    // Villa neuve en construction avec grandes baies
+    hero: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=80',
+    desc: "Menuiseries Stabile est le partenaire de confiance des constructeurs, architectes et promoteurs immobiliers de la région. Nous intervenons dès la phase de conception pour proposer les solutions les mieux adaptées au projet, avec une livraison respectant les plannings de chantier.",
+    features: [
+      { icon: '📐', titre: 'Étude technique', desc: 'Plans, côtes, prescriptions thermiques RE2020 maîtrisées' },
+      { icon: '🚛', titre: 'Livraison chantier', desc: 'Livraison coordonnée selon l\'avancement des travaux' },
+      { icon: '👷', titre: 'Pose professionnelle', desc: 'Équipes dédiées chantiers neufs, certification RGE' },
+      { icon: '📞', titre: 'Suivi dédié', desc: 'Interlocuteur unique, réactivité garantie sur tous vos chantiers' },
+    ],
+    gallery: [
+      // Chantier construction neuve béton
+      'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=80',
+      // Villa moderne livraison clé en main
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80',
+      // Bâtiment neuf grandes baies vitrées
+      'https://images.unsplash.com/photo-1560185127-6a193b6d3b6c?w=400&q=80',
+    ],
+    mats: ['Particuliers', 'Constructeurs', 'Architectes', 'RE2020', 'RGE', 'Tous matériaux'],
+  },
+};
+
+function openModal(id) {
+  const d = modals[id];
+  if (!d) return;
+
+  const galleryHtml = d.gallery.map(src =>
+    `<img src="${src}" alt="" loading="lazy">`
+  ).join('');
+
+  const featuresHtml = d.features.map(f =>
+    `<div class="modal-feature">
+      <span class="modal-feature-icon">${f.icon}</span>
+      <div class="modal-feature-titre">${f.titre}</div>
+      <div class="modal-feature-desc">${f.desc}</div>
+    </div>`
+  ).join('');
+
+  const matsHtml = d.mats.map(m =>
+    `<span class="modal-mat">${m}</span>`
+  ).join('');
+
+  document.getElementById('modal-content').innerHTML = `
+    <img class="modal-hero" src="${d.hero}" alt="${d.title}">
+    <div class="modal-body">
+      <div class="modal-tag">${d.tag}</div>
+      <h2 class="modal-title">${d.title}</h2>
+      <p class="modal-desc">${d.desc}</p>
+      <div class="modal-features">${featuresHtml}</div>
+      <div class="modal-gallery">${galleryHtml}</div>
+      <div class="modal-mats">${matsHtml}</div>
+      <a href="#rendez-vous" class="modal-cta" onclick="closeModal()">Demander un devis gratuit →</a>
+    </div>
+  `;
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Set min date for date picker
+document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// Mobile menu
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (links.style.display === 'flex') {
+    links.style.display = 'none';
+  } else {
+    links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:72px;left:0;width:100%;background:var(--noir);padding:2rem 6%;gap:1.5rem;border-bottom:1px solid rgba(200,169,110,0.2);';
+  }
+}
+
+// Form
+function submitForm() {
+  const required = ['prenom','nom','tel','email','projet'];
+  let valid = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.style.borderColor = '#e05252'; valid = false; }
+    else { el.style.borderColor = 'rgba(255,255,255,0.1)'; }
+  });
+  if (!valid) { alert('Merci de remplir tous les champs obligatoires (*).'); return; }
+  document.getElementById('formContent').style.opacity = '0.5';
+  document.getElementById('formContent').style.pointerEvents = 'none';
+  setTimeout(() => {
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }, 800);
+}
+
+// Sticky nav shadow
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow =
+    window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.4)' : 'none';
+});
+</script>
+</body>
+</html>
