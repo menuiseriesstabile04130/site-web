@@ -1047,16 +1047,16 @@ footer {
       <div id="formContent">
 <form action="https://formspree.io/f/xbdproaz" method="POST">
         <div class="form-row">
-          <div class="fg"><label>Prénom *</label><input type="text" id="prenom" placeholder="Jean" required></div>
-          <div class="fg"><label>Nom *</label><input type="text" id="nom" placeholder="Dupont" required></div>
+          <div class="fg"><label>Prénom *</label><input type="text" id="prenom"name="prenom">placeholder="Jean" required></div>
+          <div class="fg"><label>Nom *</label><input type="text" id="nom"name="nom"> placeholder="Dupont" required></div>
         </div>
         <div class="form-row">
-          <div class="fg"><label>Téléphone *</label><input type="tel" id="tel" placeholder="06 XX XX XX XX" required></div>
-          <div class="fg"><label>Email *</label><input type="email" id="email" placeholder="jean@exemple.fr" required></div>
+          <div class="fg"><label>Téléphone *</label><input type="tel" id="tel"name="telephone"> placeholder="06 XX XX XX XX" required></div>
+          <div class="fg"><label>Email *</label><input type="email" id="email"name="email"> placeholder="jean@exemple.fr" required></div>
         </div>
         <div class="fg">
           <label>Type de projet *</label>
-          <select id="projet">
+          <select id="projet" name="projet">
             <option value="" disabled selected>Sélectionnez votre projet</option>
             <optgroup label="Menuiseries">
               <option>Fenêtres — Remplacement</option>
@@ -1085,7 +1085,7 @@ footer {
           <div class="fg"><label>Créneau préféré</label><select id="creneau"><option>Matin (8h–12h)</option><option>Après-midi (14h–18h)</option><option>Flexible</option></select></div>
         </div>
         <div class="fg"><label>Code postal</label><input type="text" id="cp" placeholder="Ex : 11400" maxlength="5"></div>
-        <div class="fg"><label>Décrivez votre projet</label><textarea id="message" placeholder="Décrivez votre projet : nombre de fenêtres, type de logement, contraintes particulières..."></textarea></div>
+        <div class="fg"><label>Décrivez votre projet</label><textarea id="message" name="message">placeholder="Décrivez votre projet : nombre de fenêtres, type de logement, contraintes particulières..."></textarea></div>
         <button class="form-submit" type="submit"> Envoyer ma demande de RDV</button>
 </form>
         <p class="form-note">* Champs obligatoires · Vos données restent confidentielles</p>
