@@ -1018,6 +1018,64 @@ footer {
 </section>
 
 <!-- ══ RENDEZ-VOUS ══ -->
+<div style="background: #ffffff; padding: 25px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); margin: 30px auto; max-width: 550px; border-top: 5px solid #28a745; font-family: Arial, sans-serif;">
+    <h2 style="text-align: center; color: #333; margin-bottom: 5px;">📏 Simulateur Devis Stabile</h2>
+    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-bottom: 20px;">Partenaires : Menuisier Conseil & Fermeo</p>
+
+    <div style="margin-top: 10px;">
+        <label><b>Type de menuiserie :</b></label>
+        <select id="typeProduit" onchange="calculerStabile()" style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ddd; font-size: 16px;">
+            <option value="1371">Porte d'entrée Acier (Modena)</option>
+            <option value="1713">Porte d'entrée PVC (Panama)</option>
+            <option value="875">Porte-fenêtre PVC (Révélation)</option>
+            <option value="1634">Ensemble Châssis (Grande largeur)</option>
+            <option value="698">Fenêtre Alu (Essor)</option>
+            <option value="450">Volet Roulant Fermeo (Standard)</option>
+        </select>
+
+        <label><b>Quantité :</b></label>
+        <input type="number" id="qte" value="1" min="1" oninput="calculerStabile()" style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ddd; font-size: 16px;">
+
+        <label><b>Option Pose :</b></label>
+        <select id="optionPose" onchange="calculerStabile()" style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ddd; font-size: 16px;">
+            <option value="0">Fourniture seule</option>
+            <option value="250">Pose Standard (+250€ HT/unité)</option>
+            <option value="450">Pose avec dépose totale (+450€ HT/unité)</option>
+        </select>
+    </div>
+
+    <div style="background: #e9f7ef; padding: 25px; border-radius: 10px; text-align: center; margin-top: 25px; border: 2px solid #28a745;">
+        <span style="color: #444; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Estimation de votre projet (TTC)</span><br>
+        <strong id="prixFinal" style="font-size: 2.8rem; color: #28a745;">0 €</strong>
+    </div>
+
+    <p style="font-size: 0.75rem; color: #888; margin-top: 20px; line-height: 1.4; text-align: center;">
+        *Calcul basé sur un coefficient de 1,7. TVA 20% incluse.<br>
+        Ce montant est une estimation. Pour un devis définitif, prenez rendez-vous.
+    </p>
+</div>
+
+<script>
+function calculerStabile() {
+    // Prix d'achat fournisseur HT
+    const achatHT = parseFloat(document.getElementById('typeProduit').value);
+    const qte = parseInt(document.getElementById('qte').value);
+    const poseHT = parseFloat(document.getElementById('optionPose').value);
+    
+    // Ta nouvelle marge de 1.7
+    const coefficientMarge = 1.7; 
+    
+    // Calcul : (Prix Achat x Marge + Pose) x Quantité
+    const totalHT = ((achatHT * coefficientMarge) + poseHT) * qte;
+    
+    // Application TVA 20%
+    const totalTTC = totalHT * 1.20; 
+    
+    document.getElementById('prixFinal').innerText = Math.round(totalTTC).toLocaleString() + " €";
+}
+// Lancement automatique au chargement de la page
+window.onload = calculerStabile;
+</script>
 <section id="rendez-vous">
   <p class="s-tag">Prise de rendez-vous</p>
   <h2 class="s-title">Discutons de<br><em>votre projet</em></h2>
